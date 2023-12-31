@@ -13,5 +13,7 @@ info:
 servers:
 - url: https://development.gigantic-server.com/v1
   description: Development server
+- url: https://gold/udemy-01/v1
+  description: gold
 paths: {}
 components: {}
