@@ -13,7 +13,19 @@ info:
 servers:
 - url: https://development.gigantic-server.com/v1
   description: Development server
-- url: https://gold/udemy-01/v1
-  description: gold
-paths: {}
+paths:
+  /v1/beers:
+    get:
+      summary: Returns a list of customers.
+      description: Optional extended description in Markdown.
+      operationId: getBeers
+      responses:
+        "200":
+          description: A JSON array of beers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
 components: {}
