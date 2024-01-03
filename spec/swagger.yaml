@@ -45,7 +45,59 @@ paths:
           content:
             application/json:
               schema:
+                maxItems: 100
+                minItems: 2
                 type: array
+                description: A list of customers
                 items:
-                  type: string
-components: {}
+                  $ref: '#/components/schemas/inline_response_200'
+components:
+  schemas:
+    v1customers_address:
+      type: object
+      properties:
+        street:
+          maxLength: 100
+          minLength: 2
+          type: string
+          description: The street name of the address
+          example: 17645 Cypress Circle
+        city:
+          maxLength: 100
+          minLength: 2
+          type: string
+          description: The city name of the address
+          example: Carson
+        state:
+          maxLength: 100
+          minLength: 2
+          type: string
+          description: The state name of the address
+          example: CA
+        zip:
+          maxLength: 100
+          minLength: 2
+          type: string
+          description: The zip code of the address
+          example: "90746"
+      description: The address of the customer
+    inline_response_200:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        firstName:
+          maxLength: 100
+          minLength: 2
+          type: string
+          description: The first name of the customer
+          example: Mike
+        lastName:
+          maxLength: 100
+          minLength: 2
+          type: string
+          description: The last name of the customer
+          example: Bowen
+        address:
+          $ref: '#/components/schemas/v1customers_address'
